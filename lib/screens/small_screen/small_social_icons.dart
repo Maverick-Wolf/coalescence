@@ -13,81 +13,59 @@ class SmallSocialIcons extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Center(
-          child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Container(
-            height: _height * 0.05,
-            width: _width * 0.4,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20.0),
-              color: const Color(0xFFDFC1F7).withOpacity(0.4),
-            ),
-          ),
-          Positioned(
-            top: -_height * 0.008,
-            child: SizedBox(
-              width: _width * 0.4,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      _launchURL("https://www.instagram.com/celbitsgoa/");
-                    },
-                    splashRadius: 15,
-                    icon: const FaIcon(
-                      FontAwesomeIcons.instagram,
-                      color: Colors.black,
-                    ),
-                    iconSize: 10,
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        _launchURL(
-                            "https://www.linkedin.com/company/celbitsgoa/");
-                      },
-                      iconSize: 10,
-                      splashRadius: 15,
-                      icon: const FaIcon(
-                        FontAwesomeIcons.linkedin,
-                        color: Color.fromARGB(255, 15, 87, 146),
-                      )),
-                  IconButton(
-                      onPressed: () {
-                        _launchURL("https://m.facebook.com/CoalescenceIN/");
-                      },
-                      iconSize: 10,
-                      splashRadius: 15,
-                      icon: const FaIcon(
-                        FontAwesomeIcons.facebook,
-                        color: Color.fromARGB(255, 15, 87, 146),
-                      )),
-                  IconButton(
-                      onPressed: () {
-                        _launchURL("https://www.youtube.com/c/CoalescenceBITS");
-                      },
-                      iconSize: 10,
-                      splashRadius: 15,
-                      icon: const FaIcon(
-                        FontAwesomeIcons.youtube,
-                        color: Colors.red,
-                      )),
-                  IconButton(
-                      onPressed: () {
-                        _launchURL("https://twitter.com/celbitsgoa");
-                      },
-                      iconSize: 10,
-                      splashRadius: 15,
-                      icon: const FaIcon(
-                        FontAwesomeIcons.twitter,
-                        color: Colors.blue,
-                      )),
-                ],
+          child: Container(
+        height: _height * 0.05,
+        width: _width * 0.5,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+          color: const Color(0xFFDFC1F7).withOpacity(0.4),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              onPressed: () {
+                _launchURL("https://www.instagram.com/celbitsgoa/");
+              },
+              splashRadius: 15,
+              icon: const FaIcon(
+                FontAwesomeIcons.instagram,
+                color: Colors.black,
               ),
+              iconSize: 10,
             ),
-          ),
-        ],
+            IconButton(
+                onPressed: () {
+                  _launchURL("https://www.linkedin.com/company/celbitsgoa/");
+                },
+                iconSize: 10,
+                splashRadius: 15,
+                icon: const FaIcon(
+                  FontAwesomeIcons.linkedin,
+                  color: Color.fromARGB(255, 15, 87, 146),
+                )),
+            IconButton(
+                onPressed: () {
+                  _launchURL("https://m.facebook.com/CoalescenceIN/");
+                },
+                iconSize: 10,
+                splashRadius: 15,
+                icon: const FaIcon(
+                  FontAwesomeIcons.facebook,
+                  color: Color.fromARGB(255, 15, 87, 146),
+                )),
+            IconButton(
+                onPressed: () {
+                  _launchURL("https://www.youtube.com/c/CoalescenceBITS");
+                },
+                iconSize: 10,
+                splashRadius: 10,
+                icon: const FaIcon(
+                  FontAwesomeIcons.youtube,
+                  color: Colors.red,
+                )),
+          ],
+        ),
       )),
     );
   }
