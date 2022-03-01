@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:coalescence/screens/small_screen/small_social_icons.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'small_stats_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -87,16 +88,46 @@ class _SmallHomeState extends State<SmallHome> {
           ),
         ),
         Positioned(
-          top: _height * 0.02,
-          left: _width * 0.01,
-          child: Container(
-            decoration: const BoxDecoration(
-                boxShadow: [BoxShadow(color: Colors.white, blurRadius: 70)]),
-            height: 40,
-            width: 80,
-            child: Image.asset(
-              "assets/images/light_cel_2.png",
-              fit: BoxFit.cover,
+          top: _height * 0.01,
+          child: SizedBox(
+            width: _width * 0.995,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  decoration: const BoxDecoration(boxShadow: [
+                    BoxShadow(color: Colors.white, blurRadius: 70)
+                  ]),
+                  height: 40,
+                  width: 80,
+                  child: Image.asset(
+                    "assets/images/light_cel_2.png",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                InkWell(
+                  onTap: () async {
+                    if (!await launch("http://celca.netlify.app/")) {
+                      throw 'Could not launch the website';
+                    }
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: const Color(0xFFEFE4FB)),
+                    child: const Padding(
+                      padding: EdgeInsets.all(9.0),
+                      child: Text(
+                        "Campus Ambassador",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 9.4,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),

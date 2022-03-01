@@ -3,6 +3,7 @@ import 'package:coalescence/screens/large_screen/stats_bar.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LargeHome extends StatefulWidget {
   const LargeHome({Key? key}) : super(key: key);
@@ -88,16 +89,46 @@ class _LargeHomeState extends State<LargeHome> {
           ),
         ),
         Positioned(
-          top: _height * 0.02,
-          left: _width * 0.01,
-          child: Container(
-            decoration: const BoxDecoration(
-                boxShadow: [BoxShadow(color: Colors.white, blurRadius: 70)]),
-            height: 70,
-            width: 120,
-            child: Image.asset(
-              "assets/images/light_cel_2.png",
-              fit: BoxFit.cover,
+          top: _height * 0.01,
+          child: SizedBox(
+            width: _width * 0.995,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  decoration: const BoxDecoration(boxShadow: [
+                    BoxShadow(color: Colors.white, blurRadius: 70)
+                  ]),
+                  height: 70,
+                  width: 120,
+                  child: Image.asset(
+                    "assets/images/light_cel_2.png",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                InkWell(
+                  onTap: () async {
+                    if (!await launch("http://celca.netlify.app/")) {
+                      throw 'Could not launch the website';
+                    }
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: const Color(0xFFEFE4FB)),
+                    child: const Padding(
+                      padding: EdgeInsets.all(9.0),
+                      child: Text(
+                        "Campus Ambassador",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 13.0,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
